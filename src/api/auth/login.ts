@@ -4,6 +4,8 @@ import Usuario from '../../models/usuario.model.ts';
 import Login from '../../dtos/login.dto.ts';
 import { getNewToken } from '../../utils/jwt.ts';
 import { REGEX_EMAIL_VALIDATION } from '../../utils/regex.ts';
+import { auditLogin } from '../../core/controller/audit.controller.ts';
+import { TipoOperacaoEnum } from '../../enums/tipoOperacao.enum.ts';
 
 export const login = async (ctx: Context) => {
   try {
@@ -68,8 +70,8 @@ export const login = async (ctx: Context) => {
         username: usuario.codigo,
         token: jwt
       };
+      auditLogin(ctx.request, TipoOperacaoEnum.LOGIN, String(usuario.codigo))
       ctx.response.body = token;
-      // ctx.cookies.set('token', JSON.stringify(token));
     }
   } catch (error) {
     log.error(error);

@@ -126,7 +126,8 @@ CREATE TABLE IF NOT EXISTS audit.revinfo (
   CONSTRAINT revinfo_tipo_ck CHECK (tipo IN (
     'create',
     'update',
-    'delete'
+    'delete',
+    'login'
   ))
 );
 

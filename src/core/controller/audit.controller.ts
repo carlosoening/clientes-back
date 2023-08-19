@@ -34,3 +34,14 @@ export abstract class AuditController {
   }
 
 }
+
+export async function auditLogin(request: Request, tipo: string, usuario: string) {
+  const audit: Audit = {
+    recurso: tipo,
+    usuario: usuario,
+    tipo,
+    ip: request.ip,
+    datahora: new Date()
+  }
+  await auditService.create(audit);
+}
