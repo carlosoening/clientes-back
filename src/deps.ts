@@ -1,7 +1,7 @@
 // Standard library dependencies
-export * as log from 'https://deno.land/std@0.141.0/log/mod.ts';
+export * as log from 'https://deno.land/std@0.198.0/log/mod.ts';
 
-export { crypto } from 'https://deno.land/std@0.140.0/crypto/mod.ts';
+export { crypto } from 'https://deno.land/std@0.198.0/crypto/mod.ts';
 
 // Third party library dependencies
 export {
@@ -14,9 +14,9 @@ export {
   Request,
   type RouterContext,
   Context,
-} from 'https://deno.land/x/oak@v10.5.1/mod.ts';
+} from 'https://deno.land/x/oak@v12.6.0/mod.ts';
 
-export { Client } from 'https://deno.land/x/postgres@v0.15.0/mod.ts';
+export { Client } from 'https://deno.land/x/postgres@v0.17.0/mod.ts';
 
 export { 
   hash,
